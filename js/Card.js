@@ -1,8 +1,9 @@
 class Post {
 
 	constructor(data){
-
 		this.picture = data["picture"]
+		this.title = data['title']
+		this.id = data['id']
 
 	}
 
@@ -14,12 +15,12 @@ class Post {
 		      <div class="card__body">
 		        <div class="card__category">Category</div>
 		        <div class="card__user">User</div>
-		        <h2 class="card__title">Title</h2>
+		        <h2 class="card__title">${this.title}</h2>
 		      </div>
 		      <br>
 		      <footer class="card__footer">
 		        <span class="icon icon--time"></span>6 min
-		        <span class="icon icon--comment"></span><a href="#">39 comments</a>
+		        <span class="icon icon--comment"></span>39 comments
 		      </footer>
  
 

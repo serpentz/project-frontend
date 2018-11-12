@@ -1,6 +1,7 @@
  document.addEventListener("DOMContentLoaded" , () => {
   console.log('done 1')
     getCards()
+    getNavbar()
  })
 
 
@@ -21,18 +22,39 @@
  function render(data){
    console.log('done 3')
   let list = getList()
-  let pics = getPostsImageArray()
+  let posts = getPostObjects()
 
-    for( let x = 0 ; x < 5 ; x++){
+    for( let x = 0 ; x < posts.length ; x++){
+      console.log(posts[x])
       let div = document.createElement("article")
       div.className = "card"
-      div.innerHTML = new Post({picture:pics[x]}).render()
+      div.setAttribute("id", posts[x].id)
+      div.innerHTML = posts[x].render()
 
       list.appendChild(div)
     }
+    //getPostObjects()
 
  }
 
+ function getPostObjects(){
+
+  // debugger
+   let objArray = []
+  let array = data['data']['children']
+
+    for (let post in array){
+      let title = array[post]['data']['title']
+      let picture = array[post]['data']['url']
+      let id = array[post]['data']['id']
+      let postData = {title: title, picture: picture, id: id}
+      objArray.push(new Post(postData))
+    }
+
+    return objArray
+ }
+
+ 
  function getPostsImageArray(){
     return ["https://i.ytimg.com/vi/a8c5wmeOL9o/maxresdefault.jpg",
             "https://i.imgur.com/hXLIfXU.jpg",
