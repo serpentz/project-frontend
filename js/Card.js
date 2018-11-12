@@ -1,9 +1,9 @@
 class Post {
 
 	constructor(data){
-
 		this.picture = data["picture"]
 		this.title = data['title']
+		this.id = data['id']
 
 	}
 

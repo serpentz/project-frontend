@@ -1,7 +1,7 @@
  document.addEventListener("DOMContentLoaded" , () => {
   console.log('done 1')
     getCards()
-    
+    getNavbar()
  })
 
 
@@ -25,8 +25,10 @@
   let posts = getPostObjects()
 
     for( let x = 0 ; x < posts.length ; x++){
+      console.log(posts[x])
       let div = document.createElement("article")
       div.className = "card"
+      div.setAttribute("id", posts[x].id)
       div.innerHTML = posts[x].render()
 
       list.appendChild(div)
@@ -37,14 +39,15 @@
 
  function getPostObjects(){
 
-  debugger
+  // debugger
    let objArray = []
   let array = data['data']['children']
 
     for (let post in array){
       let title = array[post]['data']['title']
       let picture = array[post]['data']['url']
-      let postData = {title: title, picture: picture}
+      let id = array[post]['data']['id']
+      let postData = {title: title, picture: picture, id: id}
       objArray.push(new Post(postData))
     }
 
