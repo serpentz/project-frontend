@@ -4,9 +4,10 @@ class Post {
 		this.picture = data["picture"]
 		this.title = data['title']
 		this.id = data['id']
-
 	}
-
+	
+	
+	
 	render(){
 		return`
 		      <header class="card__thumb">
@@ -22,8 +23,6 @@ class Post {
 		        <span class="icon icon--time"></span>6 min
 		        <span class="icon icon--comment"></span>39 comments
 		      </footer>
- 
-
 		`
 	}
 }

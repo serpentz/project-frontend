@@ -25,7 +25,7 @@
   let posts = getPostObjects()
 
     for( let x = 0 ; x < posts.length ; x++){
-      console.log(posts[x])
+      // console.log(posts[x])
       let div = document.createElement("article")
       div.className = "card"
       div.setAttribute("id", posts[x].id)
@@ -68,6 +68,9 @@
 
 
 
+
+
+
   // <div id='card'>
   //       <div id='identicon'>
   //         <h1>Title</h1>
@@ -81,3 +84,8 @@
   //       </form> -->
 
   //     </div>
+  
+  
+  
+  
+  
