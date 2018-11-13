@@ -4,9 +4,9 @@ class Post {
 		this.picture = data["picture"]
 		this.title = data['title'].substring(0,125) + ".."
 		this.id = data['id']
-		this.time = data["created_at"]
 
 	}
+	
 	render(){
 		return`
 		      <header class="card__thumb">
@@ -22,11 +22,7 @@ class Post {
 		        <span class="icon icon--time"></span>6 min
 		        <span class="icon icon--comment"></span>0 comments
 		      </footer>
-
 		`
 	}
 }
 
-Post.prototype.method_name = function(first_argument) {
-	// body...
-};
