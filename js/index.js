@@ -2,6 +2,7 @@
   console.log('done 1')
     getCards()
     getNavbar()
+    // renderNav()
  })
 
 
