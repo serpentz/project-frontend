@@ -1,11 +1,20 @@
  document.addEventListener("DOMContentLoaded" , () => {
-  console.log('done 1')
+ 
+startLoadingBar()
     getCards()
+
     getNavbar()
     dropDown()
 
   
  })
+
+ function stopLoadingBar(){
+  document.querySelector(".spinner__container").style.display = "none"
+ }
+ function startLoadingBar(){
+  document.querySelector(".spinner__container").style.display = "block"
+ }
 
  function dropDown(){
   [].slice.call(document.querySelectorAll('.dropdown .nav-link')).forEach(function(el){
@@ -64,6 +73,7 @@ var c = 0;
 
       list.appendChild(div)
     }
+    stopLoadingBar()
     //getPostObjects()
 
  }
@@ -84,42 +94,7 @@ var c = 0;
     }
 
     return objArray
- }
-
- 
- function getPostsImageArray(){
-    return ["https://i.ytimg.com/vi/a8c5wmeOL9o/maxresdefault.jpg",
-            "https://i.imgur.com/hXLIfXU.jpg",
-            "https://i.redd.it/yrun0mfr94u01.jpg",
-            "https://preview.redd.it/egewwisbnix11.jpg?width=640&crop=smart&auto=webp&s=20cd33f298eaaf477122eb222156b250f5b315ad"
-            ]
- }
-
-
-
-
-
-
-
-
-
-  // <div id='card'>
-  //       <div id='identicon'>
-  //         <h1>Title</h1>
-  //       </div>
-
-  //       <!-- <form id='identicon-form'>
-  //         <div class='field'>
-  //           <input type='text' placeholder='Add Comment'/>
-  //           <input type='submit' class='btn' value="Generate" />
-  //         </div>
-  //       </form> -->
-
-  //     </div>
-  
-  
-  
-  
+ }  
   
   function clearCards(){
     getList.innerHTML=""
