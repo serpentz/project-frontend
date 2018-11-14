@@ -2,8 +2,8 @@ const backendUrl = "https://vast-tundra-79588.herokuapp.com/"
 function getBackendData(route, confirmFn){
     return fetch(backendUrl+route).then(res => res.json()).then(json => confirmFn(json));
 }
-    
-    
+
+
 function postBackendData(route, data, confirmFn){
     return fetch(backendUrl+route,{
         method: "POST",
@@ -15,21 +15,7 @@ function postBackendData(route, data, confirmFn){
     }).then(res => res.json()).then(json => confirmFn(json));
 }
 
-
-
-
 function getNavbar(){
-
-    function getCategoriesIndex(){
-        getBackendData("catagories", catagoriesMenu)
-    }
-    function catagoriesMenu(data){
-        
-    }
-    
-    function getCategoryMemes(catagory){
-        
-    }
     
     // function addNewEvent(element, fn, action='click'){
     //     document.querySelector(element).addEventListener(action, () => {
@@ -37,44 +23,58 @@ function getNavbar(){
     //     })
     // }
     
-    
-    
     // saved memes
     // const navSavedMemes= document.querySelector('#saved')
     // navSavedMemes.addEventListener('click', () => {
     //     veiwSavedMemes()
     // })
     
-
-    // const navCatagories= document.querySelector('#categories')
+    // const navcategories= document.querySelector('#categories')
     // navSavedMemes.addEventListener('click', () => {
     //     veiwSavedMemes()
     // })
     
     // login
+    console.log('updated js')
+    function getCategoryMemes(category){
+        
+    }
     
-    
-     
     function veiwSavedMemes(){
     }
     
-    function veiwCatagory(catagory){
+    function veiwcategory(category){
     }
     setupLogin()
+    setupCategories()
 }
-
-
-
-
-
-
-
-
 
 function setupCategories(){
     
+    function getCategoriesIndex(){
+        getBackendData("categories", categoriesMenu)
+    }
+    function categoriesMenu(data){
+        const categoriesDropdown = document.querySelector('#categories')
+        for (x of data){
+            let newEl = document.createElement('li')
+            newEl.setAttribute("class", "submenu-item")
+            newEl.setAttribute("id", `category_${x.id}`)
+            newEl.innerHTML=`<a href="#" class="submenu-link">${x.name}</a>`
+            newEl.addEventListener('click', () => {
+                 veiwcategory(x.id)
+            })
+            categoriesDropdown.appendChild(newEl)
+            
+        }
+    }
+    function veiwcategory(category){
+        getBackendData(`categories/${category}`, console.log)
+    }
+    
+    getCategoriesIndex()
+    
 }
-
 
 function setupLogin(){
     const userNameShow = document.querySelector('#username')
@@ -120,5 +120,4 @@ function setupLogin(){
         // add fetures for loged in users
         console.log(data)
     }
-    
 }

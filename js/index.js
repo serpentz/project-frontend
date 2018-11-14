@@ -61,7 +61,6 @@ var c = 0;
       div.className = "card"
       div.setAttribute("id", posts[x].id)
       div.innerHTML = posts[x].render()
-
       list.appendChild(div)
     }
     //getPostObjects()
