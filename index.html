@@ -14,37 +14,29 @@
 
   <body>
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <ul class="nav navbar-nav">
-        <li> <a id="categories" >Meme Categories</a> </li>
-        <li> <a id="saved">Saved Memes</a> </li>
-        
-        
-        
-<!--       <li> <a class="dropdown">-->
-<!--  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--    Dropdown button-->
-<!--  </button>-->
-<!--  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
-<!--    <a class="dropdown-item" href="#">Action</a>-->
-<!--    <a class="dropdown-item" href="#">Another action</a>-->
-<!--    <a class="dropdown-item" href="#">Something else here</a>-->
-<!--  </div>-->
-<!--</a></li>-->
-        
-        </ul>
-    </div>
-    
-  </div>
+    <nav role="navigation" class="nav">
+    <ul class="nav-items">
+        <li class="nav-item">
+            <a href="#" class="nav-link"><span>All memes</span></a>
+        </li> 
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link"><span>Categories</span></a>
+            <nav class="submenu">
+                <ul class="submenu-items">
+                    <li class="submenu-item"><a href="#" class="submenu-link">Category #1</a></li>
+                    <li class="submenu-item"><a href="#" class="submenu-link">Category #2</a></li>
+                    <li class="submenu-item"><a href="#" class="submenu-link">Category #3</a></li>
+                </ul>
+            </nav>
+        </li> 
+    </ul>
 </nav>
     
 <figure class="flotaing_nav snip1519">
   <figcaption>
-    <h2 id="saved-memes-link"><a href="#">Saved Memes</a></h2>
+    <h2 id="saved-memes-link" style="display: none;"><a href="#">Saved Memes</a></h2>
    
-      <a id="username" style="visibility: hidden;">user</a>
+      <a id="username" style="display: none;">user</a>
       <a><input type="text" id="login-text"><button id="login-logout" >Login</button></a>
 
   </figcaption>
