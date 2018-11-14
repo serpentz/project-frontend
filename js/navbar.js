@@ -80,6 +80,7 @@ function setupLogin(){
     const userNameShow = document.querySelector('#username')
     const navLoginInput = document.querySelector('#login-text')
     const navLoginLogout = document.querySelector('#login-logout')
+    const savedMemesLink = document.querySelector("#saved-memes-link")
     navLoginLogout.addEventListener('click', () => {
         if (userNameShow.style.visibility==="hidden"){
             login()
@@ -98,6 +99,7 @@ function setupLogin(){
         userNameShow.innerHTML="Hello "+navLoginInput.value
         userNameShow.style.visibility="visible"
         navLoginInput.style.visibility="hidden"
+        savedMemesLink.style.display = "block"
     }
      
     function logout(){
@@ -106,6 +108,7 @@ function setupLogin(){
         navLoginLogout.innerHTML="Login"
         userNameShow.style.visibility="hidden"
         navLoginInput.style.visibility="visible"
+        savedMemesLink.style.display = "none"
     }
     
     function logoutReset(){
