@@ -1,18 +1,19 @@
 const backendUrl = "https://vast-tundra-79588.herokuapp.com/"
 function getBackendData(route, confirmFn){
-        return fetch(backendUrl+route).then(res => res.json()).then(json => confirmFn(json));
-    }
+    return fetch(backendUrl+route).then(res => res.json()).then(json => confirmFn(json));
+}
+    
     
 function postBackendData(route, data, confirmFn){
-        return fetch(backendUrl+route,{
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: data
-      }).then(res => res.json()).then(json => confirmFn(json));
-    }
+    return fetch(backendUrl+route,{
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+        },
+        body: data
+    }).then(res => res.json()).then(json => confirmFn(json));
+}
 
 
 
@@ -63,19 +64,16 @@ function getNavbar(){
 }
 
 
-function logoutReset(){
-    clearCards()
-    getCards()
-}
 
-function showUserData(){
-    return 1
-}
 
-function clearCards(){
-    getList.innerHTML=""
-}
 
+
+
+
+
+function setupCategories(){
+    
+}
 
 
 function setupLogin(){

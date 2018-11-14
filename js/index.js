@@ -89,3 +89,6 @@
   
   
   
+  function clearCards(){
+    getList.innerHTML=""
+}
