@@ -37,11 +37,11 @@ function hideSubMenu(el){
 var c = 0;
 
  function getCards(){
- console.log('done 2')
+    console.log('done 2')
   //fetch
   //data => render(data)
 
-  render(null)
+  getBackendData("posts", render)
 
  }
 
@@ -49,10 +49,11 @@ var c = 0;
   return document.querySelector("#memes")
  }
 
- function render(data){
+ function render(backendData){
+     console.log(backendData)
    console.log('done 3')
   let list = getList()
-  let posts = getPostObjects()
+  let posts = getPostObjects(backendData)
 
     for( let x = 0 ; x < posts.length ; x++){
       // console.log(posts[x])
@@ -67,16 +68,17 @@ var c = 0;
 
  }
 
- function getPostObjects(){
+ function getPostObjects(backendData){
 
   // debugger
-   let objArray = []
-  let array = data['data']['children']
+  let objArray = []
+  let array = backendData
 
     for (let post in array){
-      let title = array[post]['data']['title']
-      let picture = array[post]['data']['url']
-      let id = array[post]['data']['id']
+        // debugger
+      let title = array[post].text
+      let picture = array[post].url
+      let id = array[post].id
       let postData = {title: title, picture: picture, id: id}
       objArray.push(new Post(postData))
     }
