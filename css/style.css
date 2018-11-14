@@ -324,21 +324,27 @@ body {
     position: fixed;
   }
   .spinner__container{
+    z-index: 100;
     position: absolute;
     text-align:center;
     width: 100%;
     height: 100%;
-    background: #BBB;
+    background: #d8e0e5;
   }
   .spinner {
-        text-align:center;
-  margin: 100px auto 0;
+ margin: 50%;
   width: 70px;
+  text-align: center;      top: 50%;
+        text-align:center;
+
+
   text-align: center;
 }
 
 .spinner > div {
-      text-align:center;
+
+
+  text-align:center;
   width: 18px;
   height: 18px;
   background-color: #333;

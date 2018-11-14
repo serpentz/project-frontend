@@ -88,7 +88,8 @@ var c = 0;
       let title = array[post].text
       let picture = array[post].url
       let id = array[post].id
-      let postData = {title: title, picture: picture, id: id}
+      let created_at = array[post].created_at
+      let postData = {title: title, picture: picture, id: id, created_at: created_at}
       objArray.push(new Post(postData))
     }
 
