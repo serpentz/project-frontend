@@ -2,11 +2,11 @@ class Post {
 
 	constructor(data){
 		this.picture = data["picture"]
-		this.title = data['title']
+		this.title = data['title'].substring(0,125) + ".."
 		this.id = data['id']
 
 	}
-
+	
 	render(){
 		return`
 		      <header class="card__thumb">
@@ -20,10 +20,9 @@ class Post {
 		      <br>
 		      <footer class="card__footer">
 		        <span class="icon icon--time"></span>6 min
-		        <span class="icon icon--comment"></span>39 comments
+		        <span class="icon icon--comment"></span>0 comments
 		      </footer>
- 
-
 		`
 	}
 }
+

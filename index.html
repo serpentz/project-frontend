@@ -3,31 +3,48 @@
     <meta charset="UTF-8">
     <title>Memes</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/floating.css">
     <script type="text/javascript" src="js/reddit.js"></script>
     <script type="text/javascript" src="js/Card.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/navbar.js"></script>
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
 
   <body>
-    
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <ul class="nav navbar-nav">
-        <li> <a id="categories" >Meme Categories</a> </li>
-        <li> <a id="saved">Saved Memes</a> </li>
-        </ul>
-    </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li> <a id="username" style="visibility: hidden;">user</a> </li>
-      <li> <a><input type="text" id="login-text"><button id="login-logout" >Login</button></a></li>
+
+    <nav role="navigation" class="nav">
+    <ul class="nav-items">
+        <li class="nav-item">
+            <a href="#" class="nav-link"><span>All memes</span></a>
+        </li> 
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link"><span>Categories</span></a>
+            <nav class="submenu">
+                <ul id="catagories" class="submenu-items">
+                    <li class="submenu-item"><a href="#" class="submenu-link">Category #1</a></li>
+                    <li class="submenu-item"><a href="#" class="submenu-link">Category #2</a></li>
+                    <li class="submenu-item"><a href="#" class="submenu-link">Category #3</a></li>
+                </ul>
+            </nav>
+        </li> 
     </ul>
-  </div>
 </nav>
+    
+<figure class="flotaing_nav snip1519">
+  <figcaption>
+    <h2 id="saved-memes-link" style="display: none;"><a href="#">Saved Memes</a></h2>
+   
+      <a id="username" style="display: none;">user</a>
+      <a><input type="text" id="login-text"><button id="login-logout" >Login</button></a>
+
+  </figcaption>
+</figure>
+
+
       
-    </div>
+
     
     <div id="memes">
       

@@ -2,16 +2,46 @@
   console.log('done 1')
     getCards()
     getNavbar()
+    dropDown()
+
+  
  })
 
+ function dropDown(){
+  [].slice.call(document.querySelectorAll('.dropdown .nav-link')).forEach(function(el){
+    el.addEventListener('click', onClick, false);
+});
 
+function onClick(e){
+    e.preventDefault();
+    var el = this.parentNode;
+    el.classList.contains('show-submenu') ? hideSubMenu(el) : showSubMenu(el);
+}
+
+function showSubMenu(el){
+    el.classList.add('show-submenu');
+    document.addEventListener('click', function onDocClick(e){
+        e.preventDefault();
+        if(el.contains(e.target)){
+            return;
+        }
+        document.removeEventListener('click', onDocClick);
+        hideSubMenu(el);
+    });
+}
+
+function hideSubMenu(el){
+    el.classList.remove('show-submenu');
+}
+ }
+var c = 0;
 
  function getCards(){
- console.log('done 2')
+    console.log('done 2')
   //fetch
   //data => render(data)
 
-  render(null)
+  getBackendData("posts", render)
 
  }
 
@@ -19,13 +49,14 @@
   return document.querySelector("#memes")
  }
 
- function render(data){
+ function render(backendData){
+     console.log(backendData)
    console.log('done 3')
   let list = getList()
-  let posts = getPostObjects()
+  let posts = getPostObjects(backendData)
 
     for( let x = 0 ; x < posts.length ; x++){
-      console.log(posts[x])
+      // console.log(posts[x])
       let div = document.createElement("article")
       div.className = "card"
       div.setAttribute("id", posts[x].id)
@@ -37,16 +68,17 @@
 
  }
 
- function getPostObjects(){
+ function getPostObjects(backendData){
 
   // debugger
-   let objArray = []
-  let array = data['data']['children']
+  let objArray = []
+  let array = backendData
 
     for (let post in array){
-      let title = array[post]['data']['title']
-      let picture = array[post]['data']['url']
-      let id = array[post]['data']['id']
+        // debugger
+      let title = array[post].text
+      let picture = array[post].url
+      let id = array[post].id
       let postData = {title: title, picture: picture, id: id}
       objArray.push(new Post(postData))
     }
@@ -68,6 +100,9 @@
 
 
 
+
+
+
   // <div id='card'>
   //       <div id='identicon'>
   //         <h1>Title</h1>
@@ -81,3 +116,11 @@
   //       </form> -->
 
   //     </div>
+  
+  
+  
+  
+  
+  function clearCards(){
+    getList.innerHTML=""
+}
