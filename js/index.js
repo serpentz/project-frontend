@@ -1,11 +1,52 @@
  document.addEventListener("DOMContentLoaded" , () => {
-  console.log('done 1')
+ 
+startLoadingBar()
     getCards()
+
     getNavbar()
     dropDown()
-
-  
+    setUpModal()
+    
  })
+
+
+
+ function setUpModal(){
+    document.querySelector("#modal_close").addEventListener("click", hideModal)
+    document.querySelector("#modal_cancel").addEventListener("click", hideModal)
+    document.querySelector("#modal_submit").addEventListener("click", createPost)
+     }
+
+  function createPost(event){
+
+    let data = JSON.stringify(
+      {post:
+         {
+          user_id: 1,
+          text: "text",
+          url: 'https://www.drupal.org/files/images/rickastley.jpg'
+      }})
+    postBackendData("posts", data, renderCard)
+  }
+
+  function renderCard(json){
+    hideModal()
+     debugger
+  }
+
+  function showModal(){
+    document.querySelector(".modal").style.display = "block"
+  }
+  function hideModal(){
+    document.querySelector(".modal").style.display = "none"
+  }
+
+ function stopLoadingBar(){
+  document.querySelector(".spinner__container").style.display = "none"
+ }
+ function startLoadingBar(){
+  document.querySelector(".spinner__container").style.display = "block"
+ }
 
  function dropDown(){
   [].slice.call(document.querySelectorAll('.dropdown .nav-link')).forEach(function(el){
@@ -63,6 +104,7 @@ var c = 0;
       div.innerHTML = posts[x].render()
       list.appendChild(div)
     }
+    stopLoadingBar()
     //getPostObjects()
 
  }
@@ -78,47 +120,13 @@ var c = 0;
       let title = array[post].text
       let picture = array[post].url
       let id = array[post].id
-      let postData = {title: title, picture: picture, id: id}
+      let created_at = array[post].created_at
+      let postData = {title: title, picture: picture, id: id, created_at: created_at}
       objArray.push(new Post(postData))
     }
 
     return objArray
- }
-
- 
- function getPostsImageArray(){
-    return ["https://i.ytimg.com/vi/a8c5wmeOL9o/maxresdefault.jpg",
-            "https://i.imgur.com/hXLIfXU.jpg",
-            "https://i.redd.it/yrun0mfr94u01.jpg",
-            "https://preview.redd.it/egewwisbnix11.jpg?width=640&crop=smart&auto=webp&s=20cd33f298eaaf477122eb222156b250f5b315ad"
-            ]
- }
-
-
-
-
-
-
-
-
-
-  // <div id='card'>
-  //       <div id='identicon'>
-  //         <h1>Title</h1>
-  //       </div>
-
-  //       <!-- <form id='identicon-form'>
-  //         <div class='field'>
-  //           <input type='text' placeholder='Add Comment'/>
-  //           <input type='submit' class='btn' value="Generate" />
-  //         </div>
-  //       </form> -->
-
-  //     </div>
-  
-  
-  
-  
+ }  
   
   function clearCards(){
     getList.innerHTML=""

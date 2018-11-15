@@ -1,4 +1,4 @@
-const backendUrl = "https://vast-tundra-79588.herokuapp.com/"
+const backendUrl = "http://localhost:3000/"
 function getBackendData(route, confirmFn){
     return fetch(backendUrl+route).then(res => res.json()).then(json => confirmFn(json));
 }
