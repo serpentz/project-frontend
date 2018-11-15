@@ -16,6 +16,8 @@ body {
 /* Navigation */
 
 .nav {
+  margin-top:10px;
+ 
     font-family: Georgia, Arial, sans-serif;
     font-size: 14px;
 }
@@ -78,6 +80,11 @@ body {
     opacity: 1;
     -webkit-transform: translate(0, 5px);
     transform: translate(0, 5px);
+}
+.right{
+  align-content: center;
+  position: absolute; /*or fixed*/
+  right: 15%;
 }
 
 .dropdown {

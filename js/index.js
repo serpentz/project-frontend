@@ -5,9 +5,21 @@ startLoadingBar()
 
     getNavbar()
     dropDown()
-
-  
+    setUpModal()
+    
  })
+
+ function setUpModal(){
+    document.querySelector("#modal_close").addEventListener("click", hideModal)
+    document.querySelector("#modal_cancel").addEventListener("click", hideModal)
+     }
+
+  function showModal(){
+    document.querySelector(".modal").style.display = "block"
+  }
+  function hideModal(){
+    document.querySelector(".modal").style.display = "none"
+  }
 
  function stopLoadingBar(){
   document.querySelector(".spinner__container").style.display = "none"

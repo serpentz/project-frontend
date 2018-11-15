@@ -27,6 +27,9 @@
                 </ul>
             </nav>
         </li> 
+        <li class="nav-item right">
+            <a  onclick="showModal()" class="nav-link"><span>Post a Meme</span></a>
+        </li> 
     </ul>
 </nav>
     
@@ -40,7 +43,7 @@
   </figcaption>
 </figure>
   
-  
+
   <div class="spinner__container">
     <div class="spinner">
       <div class="bounce1"></div>
@@ -48,6 +51,27 @@
       <div class="bounce3"></div>
     </div>
   </div>
+  <div id="modal"  class="modal" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Post a meme</h5>
+        <button id='modal_close' type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type='file' id='getval' name="background-image" />
+        <p>Title : </p>
+        <input id='title' />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Post</button>
+        <button id='modal_cancel' type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
       
 
