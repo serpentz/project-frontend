@@ -237,6 +237,24 @@ body {
    
     } 
 
+.card__add {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  padding-top: 10px;
+  color: #FFF;
+  text-align: center;
+  line-height: 13px;
+  font-weight: bold;
+  background-color: #38c4a5;
+  border-radius: 50%; }
+  .card__add__plus {
+    display: block;
+    align-self: center;
+    font-size: 3em; }
+
 .card__body {
   position: relative;
   padding: 20px;

@@ -9,10 +9,30 @@ startLoadingBar()
     
  })
 
+
+
  function setUpModal(){
     document.querySelector("#modal_close").addEventListener("click", hideModal)
     document.querySelector("#modal_cancel").addEventListener("click", hideModal)
+    document.querySelector("#modal_submit").addEventListener("click", createPost)
      }
+
+  function createPost(event){
+
+    let data = JSON.stringify(
+      {post:
+         {
+          user_id: 1,
+          text: "text",
+          url: 'https://www.drupal.org/files/images/rickastley.jpg'
+      }})
+    postBackendData("posts", data, renderCard)
+  }
+
+  function renderCard(json){
+    hideModal()
+     debugger
+  }
 
   function showModal(){
     document.querySelector(".modal").style.display = "block"

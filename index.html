@@ -4,7 +4,7 @@
     <title>Memes</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/floating.css">
-    <script type="text/javascript" src="js/reddit.js"></script>
+ 
     <script type="text/javascript" src="js/Card.js"></script>
     <script type="text/javascript" src="js/navbar.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
@@ -64,9 +64,11 @@
         <input type='file' id='getval' name="background-image" />
         <p>Title : </p>
         <input id='title' />
+        <p>Picture url : </p>
+        <input id='modal-input-picture-url' />
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Post</button>
+        <button id='modal_submit'type="button" class="btn btn-primary">Post</button>
         <button id='modal_cancel' type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
     </div>
