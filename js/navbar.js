@@ -40,13 +40,24 @@ function getNavbar(){
         
     }
     
-    function veiwSavedMemes(){
-    }
     
     function veiwcategory(category){
     }
     setupLogin()
     setupCategories()
+}
+
+function loadSelectedMemes(){
+    
+    
+    function loadUserSelected(userId){
+        getBackendData(`users/${userId}`, veiwUserSelected)
+    }
+    function veiwUserSelected(data){
+        clearCards()
+        render(data)
+    }
+    getBackendData(route, confirmFn)
 }
 
 function setupCategories(){
@@ -61,15 +72,21 @@ function setupCategories(){
             newEl.setAttribute("class", "submenu-item")
             newEl.setAttribute("id", `category_${x.id}`)
             newEl.innerHTML=`<a href="#" class="submenu-link">${x.name}</a>`
-            newEl.addEventListener('click', () => {
-                 veiwcategory(x.id)
+            newEl.addEventListener('click', (event) => {
+                console.log('test1')
+                debugger
+                 loadCategory(event.toElement.parentElement.id)
             })
             categoriesDropdown.appendChild(newEl)
             
         }
     }
-    function veiwcategory(category){
-        getBackendData(`categories/${category}`, console.log)
+    function loadCategory(category){
+        getBackendData(`categories/${category.split("_")[1]}`, console.log)
+    }
+    function veiwCategoryPosts(data){
+        clearCards()
+        render(data)
     }
     
     getCategoriesIndex()
