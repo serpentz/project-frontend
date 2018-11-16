@@ -1,4 +1,5 @@
 
+
 //!userData.selected_posts.includes(card.id
 function addSelectToCards(userData){
    console.log('test1')
@@ -53,4 +54,3 @@ function addSelectToCards(userData){
 
    }
 }
-
