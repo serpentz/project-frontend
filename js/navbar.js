@@ -52,18 +52,20 @@ function loadSelectedMemes(){
     
     
     function loadUserSelected(userId){
+        debugger
         getBackendData(`users/${userId}`, veiwUserSelected)
     }
     function veiwUserSelected(data){
+        debugger
         clearCards()
         render(data[selected_posts])
     }
     document.querySelector('#selected_posts').addEventListener('click', (event) => {
                 if (document.querySelector('#username').id){
+                    debugger
                     loadUserSelected(document.querySelector('#username').id)
                 }
             })
-    getBackendData(route, confirmFn)
 }
 
 function setupCategories(){
@@ -80,7 +82,6 @@ function setupCategories(){
             newEl.innerHTML=`<a href="#" class="submenu-link">${x.name}</a>`
             newEl.addEventListener('click', (event) => {
                 console.log('test1')
-                debugger
                  loadCategory(event.toElement.parentElement.id)
             })
             categoriesDropdown.appendChild(newEl)
@@ -103,7 +104,7 @@ function setupLogin(){
     const userNameShow = document.querySelector('#username')
     const navLoginInput = document.querySelector('#login-text')
     const navLoginLogout = document.querySelector('#login-logout')
-    const savedMemesLink = document.querySelector("#saved-memes-link")
+ 
     navLoginLogout.addEventListener('click', () => {
         if (userNameShow.style.visibility==="hidden"){
             login()
@@ -122,7 +123,6 @@ function setupLogin(){
         userNameShow.innerHTML="Hello "+navLoginInput.value
         userNameShow.style.visibility="visible"
         navLoginInput.style.visibility="hidden"
-        savedMemesLink.style.display = "block"
         // addSelectToCards({id:1})
     }
      
@@ -132,7 +132,6 @@ function setupLogin(){
         navLoginLogout.innerHTML="Login"
         userNameShow.style.visibility="hidden"
         navLoginInput.style.visibility="visible"
-        savedMemesLink.style.display = "none"
         userNameShow.setAttribute("id",null)
         
     }
