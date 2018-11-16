@@ -2,20 +2,23 @@
 // !userData.selected_posts.includes(card.id
 
 function removeSelectToCards(){
+    console.log('remove')
     const postList = document.querySelector('#memes')
-    function removeSelect(card){
-        card.querySelector(".card__add").remove
-    }
+    // debugger
     for (card of postList.children){
-        removeSelect(card)
+        // console.log(card)
+        card.querySelector(".card__add").remove()
     }
     
 }
 function addSelectToCards(userData){
+    // debugger
     console.log('test1')
     const postList = document.querySelector('#memes')
     
     function userSelect(card, userId){
+        console.log('plus')
+        removeSelect(card)
         postBackendData(`posts/${card.id}/add`, JSON.stringify({user_id: userId}), setSelected)
     }
     
@@ -45,7 +48,7 @@ function addSelectToCards(userData){
     // }
     for (card of postList.children){
         let newEl = document.createElement('div');
-        if (true){
+        if (!userData['selected'].includes(parseInt(card.id))){
             newEl.setAttribute('class', "card__add")
             newEl.innerHTML= `
                      <div class="card__add__plus">

@@ -55,7 +55,7 @@ function loadSelectedMemes(){
         getBackendData(`users/${userId}`, veiwUserSelected)
     }
     function veiwUserSelected(data){
-        debugger
+        // debugger
         const postList = document.querySelector('#memes')
         for (card of postList.children){
             if (!data['selected'].includes(parseInt(card.id))){
@@ -148,7 +148,7 @@ function setupLogin(){
     function renderUserData(data){
         // add fetures for loged in users
         userNameShow.setAttribute("id",data.id)
-        
+        addSelectToCards(data)
         
         // console.log(data)
     }
