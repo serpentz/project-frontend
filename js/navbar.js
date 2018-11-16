@@ -1,4 +1,4 @@
-const backendUrl = "http://localhost:3000/"
+const backendUrl = "https://vast-tundra-79588.herokuapp.com/"
 function getBackendData(route, confirmFn){
     return fetch(backendUrl+route).then(res => res.json()).then(json => confirmFn(json));
 }
@@ -45,6 +45,7 @@ function getNavbar(){
     }
     setupLogin()
     setupCategories()
+    loadSelectedMemes()
 }
 
 function loadSelectedMemes(){
@@ -55,8 +56,13 @@ function loadSelectedMemes(){
     }
     function veiwUserSelected(data){
         clearCards()
-        render(data)
+        render(data[selected_posts])
     }
+    document.querySelector('#selected_posts').addEventListener('click', (event) => {
+                if (document.querySelector('#username').id){
+                    loadUserSelected(document.querySelector('#username').id)
+                }
+            })
     getBackendData(route, confirmFn)
 }
 
@@ -110,13 +116,14 @@ function setupLogin(){
     
     function login(){
         console.log('login')
-        console.log(navLoginInput.value)
+        // console.log(navLoginInput.value)
         postBackendData("users", JSON.stringify({"user": {"name": navLoginInput.value}}), renderUserData)
         navLoginLogout.innerHTML="Logout"
         userNameShow.innerHTML="Hello "+navLoginInput.value
         userNameShow.style.visibility="visible"
         navLoginInput.style.visibility="hidden"
         savedMemesLink.style.display = "block"
+        // addSelectToCards({id:1})
     }
      
     function logout(){
@@ -126,6 +133,8 @@ function setupLogin(){
         userNameShow.style.visibility="hidden"
         navLoginInput.style.visibility="visible"
         savedMemesLink.style.display = "none"
+        userNameShow.setAttribute("id",null)
+        
     }
     
     function logoutReset(){
@@ -135,6 +144,7 @@ function setupLogin(){
     
     function renderUserData(data){
         // add fetures for loged in users
-        console.log(data)
+        userNameShow.setAttribute("id",data.id)
+        // console.log(data)
     }
 }
