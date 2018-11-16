@@ -6,7 +6,6 @@ startLoadingBar()
     getNavbar()
     dropDown()
     setUpModal()
-    
  })
 
  function setUpModal(){
@@ -102,7 +101,6 @@ var c = 0;
  }
 
  function render(backendData){
-     console.log(backendData)
    console.log('done 3')
   let list = getList()
   let posts = getPostObjects(backendData)
@@ -117,7 +115,7 @@ var c = 0;
     }
     stopLoadingBar()
     //getPostObjects()
-
+    removeSelectToCards()
  }
 
  function getPostObjects(backendData){
