@@ -9,8 +9,6 @@ startLoadingBar()
     
  })
 
-
-
  function setUpModal(){
     document.querySelector("#modal_close").addEventListener("click", hideModal)
     document.querySelector("#modal_cancel").addEventListener("click", hideModal)
@@ -19,19 +17,37 @@ startLoadingBar()
 
   function createPost(event){
 
+    debugger
+    console.log("hit")
+
+    let text = document.querySelector("#title").value
+    let url = document.querySelector("#modal-input-picture-url").value
+
     let data = JSON.stringify(
       {post:
          {
-          user_id: 1,
-          text: "text",
-          url: 'https://www.drupal.org/files/images/rickastley.jpg'
+          user_id: document.querySelector('.username').id,
+          text: text ,
+          url: url
       }})
     postBackendData("posts", data, renderCard)
   }
 
   function renderCard(json){
+
+
+    debugger
+    let card = new Post({...json, title: json['text'], picture: json['url']})
+
+
+
+
+    let div = document.createElement("article")
+      div.className = "card"
+      div.setAttribute("id", json.id)
+      div.innerHTML = card.render()
+      getList().prepend(div)
     hideModal()
-     debugger
   }
 
   function showModal(){
@@ -78,12 +94,7 @@ function hideSubMenu(el){
 var c = 0;
 
  function getCards(){
-    console.log('done 2')
-  //fetch
-  //data => render(data)
-
   getBackendData("posts", render)
-
  }
 
  function getList(){
@@ -156,7 +167,7 @@ function addSelectToCards(userData){
    // }
 
    function removeSelect(card){
-       card.querySelector(".card__add").remove
+       card.querySelector(".card__add").remove()
    }
 
    // function unSelectEL(userId){

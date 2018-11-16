@@ -127,6 +127,7 @@ function setupLogin(){
         userNameShow.innerHTML="Hello "+navLoginInput.value
         userNameShow.style.visibility="visible"
         navLoginInput.style.visibility="hidden"
+        removeSelectToCards()
         //addSelectToCards({id:userNameShow.id})
     }
      

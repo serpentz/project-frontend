@@ -1,8 +1,9 @@
 class Post {
 
 	constructor(data){
+
 		this.picture = data["picture"]
-		this.title = data['title'].length > 125 ?  data['title'].substring(0,125) + ".." : data['title']
+		this.text = data['title'].length > 125 ?  data['title'].substring(0,125) + ".." : data['title']
 		this.id = data['id']
 		this.timestamp = new Date(data['created_at']).toDateString().split(" ").slice(0, -1).join(" ")
 		this.user = !data['user'] ? "reddit" : data['user']
@@ -21,7 +22,7 @@ class Post {
 		      </header>
 		      <div class="card__body">
 		        <div class="card__category">${this.user}</div>
-		        <h2 class="card__title">${this.title}</h2>
+		        <h2 class="card__title">${this.text}</h2>
 		      </div>
 		      <br>
 		      <footer class="card__footer">
