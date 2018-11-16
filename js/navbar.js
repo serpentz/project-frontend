@@ -127,7 +127,7 @@ function setupLogin(){
         userNameShow.innerHTML="Hello "+navLoginInput.value
         userNameShow.style.visibility="visible"
         navLoginInput.style.visibility="hidden"
-        // addSelectToCards({id:1})
+        //addSelectToCards({id:userNameShow.id})
     }
      
     function logout(){
@@ -148,6 +148,8 @@ function setupLogin(){
     function renderUserData(data){
         // add fetures for loged in users
         userNameShow.setAttribute("id",data.id)
+        
+        
         // console.log(data)
     }
 }
