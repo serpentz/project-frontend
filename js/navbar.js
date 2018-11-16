@@ -52,18 +52,22 @@ function loadSelectedMemes(){
     
     
     function loadUserSelected(userId){
-        debugger
         getBackendData(`users/${userId}`, veiwUserSelected)
     }
     function veiwUserSelected(data){
         debugger
-        clearCards()
-        render(data[selected_posts])
+        const postList = document.querySelector('#memes')
+        for (card of postList.children){
+            if (!data['selected'].includes(parseInt(card.id))){
+                card.style.display="none"
+            }
+        }
+        // clearCards()
+        // render(data[selected_posts])
     }
     document.querySelector('#selected_posts').addEventListener('click', (event) => {
-                if (document.querySelector('#username').id){
-                    debugger
-                    loadUserSelected(document.querySelector('#username').id)
+                if (document.querySelector('.username').id){
+                    loadUserSelected(document.querySelector('.username').id)
                 }
             })
 }
@@ -101,7 +105,7 @@ function setupCategories(){
 }
 
 function setupLogin(){
-    const userNameShow = document.querySelector('#username')
+    const userNameShow = document.querySelector('.username')
     const navLoginInput = document.querySelector('#login-text')
     const navLoginLogout = document.querySelector('#login-logout')
  
